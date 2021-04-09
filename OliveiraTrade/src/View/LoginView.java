@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Dao.UsuarioDao;
@@ -11,15 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Patrícia Carla Soare
- */
 public class LoginView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginView
-     */
     public LoginView() {
         initComponents();
     }
@@ -140,7 +128,7 @@ public class LoginView extends javax.swing.JFrame {
             objusuario.setEmail(txtEmail.getText());
             objusuario.setSenha(txtSenha.getText());
             UsuarioDao autentUsuario = new UsuarioDao();
-            ResultSet respostaUsuario = autentUsuario.autentification(objusuario);
+            ResultSet respostaUsuario = autentUsuario.autenticacao(objusuario);
             if (respostaUsuario.next()) {
                 MenuView telaMenu = new MenuView();
                 telaMenu.setVisible(true);
@@ -157,6 +145,7 @@ public class LoginView extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         CadastroView telaCadastro = new CadastroView();
         telaCadastro.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
